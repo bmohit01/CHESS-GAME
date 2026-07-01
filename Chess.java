@@ -71,24 +71,20 @@ public class Chess{
         System.out.println("B,b -- Bishop");
         System.out.println("Q,q -- Queen");
         System.out.println("K,k -- King");
-        System.out.println("+---------------------------------+");
-        
         for (int i = 0; i < 11; i++) {
-            System.out.print("| ");
             for (int j = 0; j < 11; j++) {
                 System.out.print(a[i][j] + "  ");
             }
-            System.out.println("|");
+            System.out.println();
         }
         
         while (true) {
-            System.out.println("+---------------------------------+");
             if (ChessLogic.first > 0) System.out.println("First Move - White's Move.....");
             ChessLogic.first--;
 
             // --- CHECKMATE LOGIC START ---
             boolean isWhiteTurn = (ChessLogic.r % 2 == 1);
-            if (ChessLogic.isCheckmate(a, isWhiteTurn)) {
+            if (Checkma.isCheckmate(a, isWhiteTurn)) {
                 System.out.println("CHECKMATE!");
                 if (isWhiteTurn) {
                     System.out.println("Black Wins!");
