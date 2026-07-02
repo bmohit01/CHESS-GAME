@@ -142,6 +142,10 @@ public class White {
             isValid = true;
             isCapture = true;
         }
+         if(c==2&&a==3){
+            Checkma.wpapro(isValid,isCapture,a,b,c,d,y);
+            return;
+        }
         ChessLogic.check(isValid, isCapture, y, a, b, c, d);
     }
     public static void wrook(int a, int b, int c, int d, char[][] y) {

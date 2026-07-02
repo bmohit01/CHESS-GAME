@@ -1,4 +1,6 @@
+import java.util.Scanner;
 public class Checkma {
+    
     public static boolean isCheckmate(char[][] y, boolean isW) {
         if (!isCheck(y, isW)) return false;
         for (int a = 2; a <= 9; a++) {
@@ -71,4 +73,63 @@ public class Checkma {
             if (y[row][col] != '.') return false;
         return true;
     }
+    public static void wpapro(boolean isValid, boolean isCapture, int a, int b, int c, int d, char [][]y){
+        if(ChessLogic.valid(isValid,isCapture,a,b,c,d,y)){
+            System.out.println("Pawn Promotion! Choose a piece to promote to (Q, R, B, N):");
+            Scanner s= new Scanner(System.in);
+            String q=s.nextLine();
+            if(q.equals("Q")){
+                y[c][d]='Q';
+            }
+            else if(q.equals("R")){
+                y[c][d]='R';
+            }
+            else if(q.equals("B")){
+                y[c][d]='B';
+            }
+            else if(q.equals("N")){
+                y[c][d]='N';
+                
+            }
+            else{
+                System.out.println("Default P is promoted to Q");
+                y[c][d]='Q';
+            }
+        ChessLogic.display(y, c, d);
+        }
+        else{
+            System.out.println("Invalid");
+        }
+        
+    }
+    public static void bpapro(boolean isValid, boolean isCapture, int a, int b, int c, int d, char [][]y){
+        if(ChessLogic.valid(isValid,isCapture,a,b,c,d,y)){
+            System.out.println("Pawn Promotion! Choose a piece to promote to (q, r, b, n):");
+            Scanner s= new Scanner(System.in);
+            String q=s.nextLine();
+            if(q.equals("q")){
+                y[c][d]='q';
+            }
+            else if(q.equals("r")){
+                y[c][d]='r';
+            }
+            else if(q.equals("b")){
+                y[c][d]='b';
+            }
+            else if(q.equals("n")){
+                y[c][d]='n';
+            }
+            else{
+                System.out.println("Default P is promoted to q");
+                y[c][d]='q';
+            }
+        ChessLogic.display(y, c, d);
+        }
+        else{
+            System.out.println("Invalid");
+        }
+        
+    }
+
 }
+

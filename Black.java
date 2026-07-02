@@ -147,6 +147,10 @@ public class Black {
             isValid = true;
             isCapture = true;
         }
+        if(c==9&&a==8){
+            Checkma.bpapro(isValid,isCapture,a,b,c,d,y);
+            return;
+        }
         ChessLogic.check(isValid, isCapture, y, a, b, c, d);
     }
 

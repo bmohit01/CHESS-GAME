@@ -47,7 +47,6 @@ public class Chess{
                 a[8][i] = 'P';
             }
         }
-        
         //Lowercase -- Black
         a[2][2] = a[2][9] = 'r';
         a[2][3] = a[2][8] = 'n';

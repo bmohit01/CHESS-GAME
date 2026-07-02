@@ -72,4 +72,33 @@ public class ChessLogic {
         }
         r++;
     }
+    public static boolean valid(boolean isValid, boolean isCapture, int a, int b, int c, int d, char [][]y){
+        boolean isW = (ChessLogic.r % 2 == 1);
+        char p = y[a][b];
+
+        if (!isValid || p == '.' || Character.isUpperCase(p) != isW) {
+            return false;
+        }
+
+        char t = y[c][d];
+        y[c][d] = p;
+        y[a][b] = '.';
+
+        if (Checkma.isCheck(y, isW)) {
+            y[a][b] = p;
+            y[c][d] = t;
+            System.out.println("Invalid Move !! That leaves your King in Check.");
+            return false;
+        } else {
+            if (isCapture){
+                System.out.println("One Piece Captured !");
+                return true;
+            }
+            if (Checkma.isCheck(y, !isW)){
+                System.out.println("CHECK!");
+                return true;
+            }
+        }       
+      return true;      
+    }
 }
